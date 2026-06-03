@@ -14,8 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // ১. আপনার ৩০টি আসল ফিচার ড্যাশবোর্ড গ্রিডে সাজানো হচ্ছে
     grid.innerHTML = ZTX_NODE_REGISTRY.map(mod => `
         <div class="card">
-            <div>
-                <p style="color: var(--accent-gold); font-size: 11px; margin: 0 0 4px 0; font-weight: bold; letter-spacing: 1px;">${mod.type}</p>
+            
                 <h3 class="card-title">${mod.title}</h3>
                 <p class="card-desc">${mod.desc}</p>
             </div>
