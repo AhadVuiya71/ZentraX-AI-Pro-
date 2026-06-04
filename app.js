@@ -80,3 +80,22 @@ document.addEventListener("DOMContentLoaded", () => {
     
     console.log("💎 ZentraX Kernel: Core Orchestrator Online. 30 Microservices wired.");
 });
+// Central Event Bus for ZentraX AI
+const ZentraX_EventBus = {
+    subscribers: {},
+
+    subscribe(event, callback) {
+        if (!this.subscribers[event]) this.subscribers[event] = [];
+        this.subscribers[event].push(callback);
+    },
+
+    publish(event, data) {
+        if (!this.subscribers[event]) return;
+        this.subscribers[event].forEach(callback => callback(data));
+    }
+};
+
+// নোডগুলো এখন ইভেন্ট বাসের মাধ্যমে একে অপরের সাথে ডেটা শেয়ার করবে
+ZentraX_EventBus.subscribe("SYSTEM_READY", (data) => {
+    console.log("Kernel: All microservices are now synchronized via Event Bus.");
+});
